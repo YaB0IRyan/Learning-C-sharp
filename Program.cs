@@ -10,18 +10,37 @@ namespace Learning_C_sharp {
     class Program {
         static void Main(string[] args) {
             string dashLine = "----------------------------------------------\n";
-            Console.WriteLine("Hello, welcome to the program, please press enter to continue"); //Calls the WriteLine method from console class and writes the contents of the ("") to the console.
-            Console.ReadKey();//Calls the ReadKey method from console class and pauses the execution to wait for the user to press an key.
+            Console.WriteLine("Hello, welcome to the program, please choose from the following options: \n"); //Calls the WriteLine method from console class and writes the contents of the ("") to the console.
+            Console.WriteLine("1. Variables");
+            Console.WriteLine("2. Control Structures");
+
+            Console.WriteLine("\nPlease type the nimber of youre choice: ");
+            int userChoice = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine(dashLine);
 
-            //Below shows initialisation of variables
+            switch (userChoice)
+            {
+                case 1:
+                    VariablesSection(dashLine);
+                    break;
+
+                case 2:
+                    ControlStructuresSection(dashLine);
+                    break;
+
+            }
+
+        }
+
+        public static void VariablesSection(string dashLine)
+        {
             //variables are initialised like so: Datatype variable_name.
 
             int num1; //In this example, Datatype is int(integer), and variable_name is num1, so essentially we are saying that the variable num1 will contain integer data.
             int num2 = 4; //Here we are doing the same, but we are then populating the variable with data.
             int num3 = num2; //Here we are again populating the variable with data, but this time instead of giving data directly, we are using data from another variable.
 
-            string introMessage = "Welcome to the basic variable section of the program"; //Here we are declaring a variable and populating it again, only this time we are using text instrad of numbers, this is known as a string.
+            string introMessage = " ------ VARIABLES ------ "; //Here we are declaring a variable and populating it again, only this time we are using text instrad of numbers, this is known as a string.
             int x = 7;
             int y = 13;
             int answer;
@@ -44,7 +63,7 @@ namespace Learning_C_sharp {
 
             //dividing the numbers
             double answer2; //Here we have to use a double instead of an integer, this is because an integer can only be a whole number, whereas doubles can have a decimal place
-            answer2 = (double)x / (double)y;
+            answer2 = (double)x / (double)y; //Here we make use of casting, this allows us to cast an integer value as a double to be used in this scenario
             Console.WriteLine("\nx - y is - " + answer2);
 
             //increace x by 1
@@ -62,8 +81,12 @@ namespace Learning_C_sharp {
 
             //calculate the square root of answer2 (49)
             Console.WriteLine("\nthe square root of " + answer2 + " = " + Math.Sqrt(answer2));
-
             Console.WriteLine(dashLine);
+        }
+
+        public static void ControlStructuresSection(string dashLine)
+        {
+            Console.WriteLine(" ------ CONTROL STRUCTURES ------ ");
 
         }
     }
